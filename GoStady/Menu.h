@@ -41,7 +41,9 @@ public:
 				_models->PrintInstitution();
 
 				break;
+			case 'b':
 
+				break;
 			default:
 				break;
 			}
