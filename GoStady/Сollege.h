@@ -5,12 +5,13 @@
 
 using namespace std;
 
-class Ñollege : EducationalInstitution
+class College : public EducationalInstitution
 {
 private:
 
 public:
-	Ñollege(string title, string category)
+	College() {}
+	College(string title, string category)
 		:EducationalInstitution(title, category)
 	{
 

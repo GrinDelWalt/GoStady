@@ -39,12 +39,17 @@ public:
 			{
 			case'a':
 				_models->PrintInstitution();
+
 				break;
 
 			default:
 				break;
 			}
 		} while (choice != 'q');
+	}
+	void InstitutionMenu()
+	{
+
 	}
 	void ChoosingInstitution() //выбор учебного заведния
 	{

@@ -2,6 +2,7 @@
 #include "Specialties.h"
 #include <iostream>
 #include <vector>
+#include <iomanip>
 #include <random>
 #include <string>
 
@@ -56,6 +57,10 @@ protected:
 	}
 
 public:
+	EducationalInstitution()
+	{
+
+	}
 	EducationalInstitution(string title, string category)
 	{
 		_title = title;
@@ -75,5 +80,13 @@ public:
 	string GetCategory()
 	{
 		return _category;
+	}
+	void PrintTitle()
+	{
+		cout << _id << setw(50) << _title << endl;
+	}
+	int GetID()
+	{
+		return _id;
 	}
 };
