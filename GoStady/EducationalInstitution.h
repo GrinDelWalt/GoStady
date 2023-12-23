@@ -32,17 +32,17 @@ protected:
 	{
 		return _staticID++;
 	}
-	void CreateArayy(vector <string> vectorForm , string arrayDate[])
+	void CreateArayy(vector <string> &vectorForm , string arrayDate[])
 	{
+			srand(time(0));
 		string text;
 		for (int i = 0; i < 2; i++)
 		{
-			srand(time(0));
 			if (i == 0)
 			{
 				vectorForm.push_back(arrayDate[0]);
 			}
-			else if (750 > GetRandomInt(0,1000))
+			if (750 > GetRandomInt(0,1000))
 			{
 				vectorForm.push_back(arrayDate[i + 1]);
 			}
@@ -62,16 +62,19 @@ public:
 		_id = NextID();
 		CreateArayy(_formTraining, _training);
 		CreateArayy(_formEducation, _education);
+		_position = -1;
 	}
 	bool SearchSpec(int id)
 	{
 		for (Specialties spec : _specialties)
 		{
-			if (id = spec.GetId())
+			if (id == spec.GetId())
 			{
 				_position = id;
+				return true;
 			}
 		}
+		return false;
 	}
 	int GetRandomInt(int min, int max)
 	{
@@ -100,6 +103,23 @@ public:
 	void PrintTitle()
 	{
 		cout << _id << setw(50) << _title << endl;
+	}
+	void PrintAll()
+	{
+		cout << "Название: " << _title << endl;
+		cout << "Виды обучения: ";
+		for (int i = 0; i < _formTraining.size(); i++)
+		{
+			cout << " " << _formTraining[i];
+		}
+		cout << "\nФорма обучения: ";
+		for (int i = 0; i < _formEducation.size(); i++)
+		{
+			cout << " " << _formEducation[i];
+		}
+		cout << "\nИнформация о направлениях" << endl;
+		PrintSpec();
+		cout << endl << endl;
 	}
 	void PrintSpec()
 	{

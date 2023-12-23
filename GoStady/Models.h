@@ -47,12 +47,50 @@ private:
 	vector <University> _universitys;
 	vector <College> _colleges;
 	bool _univers;
+	bool result;
 public:
 	College* _college;
 	University* _university;
 	Models()
 	{
+		result = false;
 		TestModels();
+	}
+	void PrintAll()
+	{
+		//cout << "ID" << setw(50) << "Название учебного заведения" << endl << endl;
+		for (College col : _colleges)
+		{
+			col.PrintAll();
+		}
+		for (University univ : _universitys)
+		{
+			univ.PrintAll();
+		}
+		system("pause");
+
+	}
+	void ClearResult()
+	{
+		if (result)
+		{
+			if (_univers)
+			{
+				_university->SetPosition(-1);
+			}
+			else
+			{
+				_college->SetPosition(-1);
+			}
+			result = false;
+			cout << "Данные очищенны" << endl;
+		}
+		else
+		{
+			cout << "Буфер пуст!" << endl;
+		}
+			system("pause");
+
 	}
 	void CreateModelsUniversity(string title, string category, string admissionRequirement)
 	{
@@ -64,9 +102,19 @@ public:
 	}
 	void PrintInstitution()
 	{
-		do
+		char choise;
+		if (result)
 		{
-			cout << "ID" << setw(30) << "Название учебного заведения" << endl;
+			cout << "В буфере храняться данные вуза, удалить? y/n: ";
+			cin >> choise;
+			if (choise == 'y')
+			{
+				result = false;
+			}
+		}
+		while (result == false)
+		{
+			cout << "ID" << setw(50) << "Название учебного заведения" << endl << endl;
 			cout << setw(30) << "Институты" << endl << endl;
 
 			for (University univers : _universitys)
@@ -79,9 +127,10 @@ public:
 			{
 				col.PrintTitle();
 			}
-		} while (ChoseInstitution());
+			ChoseInstitution();
+		}
 	}
-	bool ChoseInstitution()
+	void ChoseInstitution()
 	{
 		bool result;
 		string textID;
@@ -94,7 +143,7 @@ public:
 			if (univers.GetID() == id)
 			{
 				_university = new University(univers);
-				PrintSpecialties(univers);
+				PrintSpecialties(*_university);
 			}
 		}
 		for (College col : _colleges)
@@ -102,31 +151,76 @@ public:
 			if (col.GetID() == id)
 			{
 				_college = new College(col);
-				PrintSpecialties(col);
+				PrintSpecialties(*_college);
 			}
 		}
 	}
-	bool PrintSpecialties(College model)
+	void PrintSpecialties(College model)
 	{
 		model.PrintSpec();
 		_univers = false;
-	}
-	bool PrintSpecialties(University model)
-	{
-		model.PrintSpec();
-		_univers = true;
-
-	}
-	int ChoiceSpecialties()
-	{
 		char choise;
 		int position;
 		cout << "Выбрать спецальность? y/n: ";
 		cin >> choise;
 		if (choise == 'y')
 		{
+			cout << "Выберете ID: ";
 			cin >> position;
+
+			if (model.SearchSpec(position))
+			{
+				result = true;
+				model.SetPosition(position);
+			}
+			else
+			{
+				system("cls");
+				cout << "Неверный ID" << endl;
+				result = false;
+			}
+		}
+		else
+		{
+			system("cls");
+			cout << "неверный выбор" << endl;
+			result = false;
 		}
 	}
+	void PrintSpecialties(University& model)
+	{
+		model.PrintSpec();
+		_univers = true;
+		char choise;
+		int position;
+		cout << "Выбрать спецальность? y/n: ";
+		cin >> choise;
+		if (choise == 'y')
+		{
+			cout << "Выберете ID: ";
+
+			cin >> position;
+
+			if (model.SearchSpec(position))
+			{
+				model.SetPosition(position);
+				result = true;
+			}
+			else
+			{
+				system("cls");
+				cout << "Неверный ID" << endl;
+				result = false;
+			}
+		}
+		else
+		{
+			system("cls");
+			cout << "неверный выбор" << endl;
+			result = false;
+		}
+	}
+	//int ChoiceIdSpecialties()
+
 };
 

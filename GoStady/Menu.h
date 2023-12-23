@@ -20,15 +20,14 @@ public:
 		char choice;
 		do
 		{
+			system("cls");
 			cout << "--------------------------------------------------" << endl;
 
-			cout << "a) Choosing an educational institution" << endl; //выбор учебного заведения
-			cout << "b) Print all" << endl;
-			cout << "d) Revers vector" << endl;
-			cout << "c) Print all title vector reverse" << endl;
-			cout << "e) Get last version all program" << endl;
-			cout << "f) Paste 500 elements in center vector" << endl;
-			cout << "g) Clear vectro" << endl;
+			cout << "a) Просмотр направлений и учебных заведений" << endl;
+			cout << "b) Выбор учебного заведения" << endl; //выбор учебного заведения
+			cout << "d) Очистить выбор" << endl;
+			cout << "d) Просмотр условий" << endl;
+			cout << "c) Просмотр особенностей" << endl;
 			cout << "q) exet" << endl;
 
 			cout << "Write programm : ";
@@ -38,11 +37,13 @@ public:
 			switch (choice)
 			{
 			case'a':
-				_models->PrintInstitution();
-
+				_models->PrintAll();
 				break;
-			case 'b':
-
+			case'b':
+				_models->PrintInstitution();
+				break;
+			case 'd':
+				_models->ClearResult();
 				break;
 			default:
 				break;
