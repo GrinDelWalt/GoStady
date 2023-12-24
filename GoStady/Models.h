@@ -18,11 +18,11 @@ private:
 	void TestModels()
 	{
 		string education[]{ "Дневная", "Вечерняя", "Заочная" };
-		CreateModelsUniversity("Горный", "Институт", "230б");
-		CreateModelsUniversity("Железнодорожный", "Институт", "230б");
+		CreateModelsUniversity("Горный", "Институт", "260б");
+		CreateModelsUniversity("Железнодорожный", "Институт", "210б");
 		CreateModelsUniversity("Архитектурный", "Институт", "230б");
-		CreateModelsUniversity("Полетехнический", "Институт", "230б");
-		CreateModelsUniversity("Аграрный", "Институт", "230б");
+		CreateModelsUniversity("Полетехнический", "Институт", "270б");
+		CreateModelsUniversity("Аграрный", "Институт", "220б");
 
 		CreateModelCollege("Отраслевых технологий", "Коледж");
 		CreateModelCollege("Фармацевтический", "Коледж");
@@ -246,6 +246,10 @@ public:
 			cout << "неверный выбор" << endl;
 			result = false;
 		}
+	}
+	void Result()
+	{
+
 	}
 	//int ChoiceIdSpecialties()
 

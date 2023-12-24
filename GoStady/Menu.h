@@ -28,6 +28,7 @@ public:
 			cout << "c) Очистить выбор" << endl;
 			cout << "d) Просмотр условий" << endl;
 			cout << "e) Просмотр особенностей" << endl;
+			cout << "f) Итог" << endl;
 			cout << "q) exet" << endl;
 
 			cout << "Write programm : ";
@@ -54,6 +55,7 @@ public:
 				{
 					cout << "Не выбранно учереждение" << endl;
 				}
+				cout << endl;
 				system("pause");
 				break;
 			case 'e':
@@ -65,7 +67,11 @@ public:
 				{
 					cout << "Не выбранно учереждение" << endl;
 				}
+				cout << endl;
 				system("pause");
+				break;
+			case 'f':
+
 				break;
 			default:
 				break;
