@@ -9,23 +9,23 @@ using namespace std;
 class Menu
 {
 private:
-	Models* _models;
+	Models* _models; //переменноая экземпляра класса
 public:
 	Menu()
 	{
-		_models = new Models();
+		_models = new Models(); // динамичское выделения памяти для класса
 	}
-	void StartMenu()
+	void StartMenu()// метод меню
 	{
 		setlocale(LC_ALL, "Russian");
 		char choice;
 		do
 		{
-			system("cls");
+			system("cls"); //очистка консоли
 			cout << "--------------------------------------------------" << endl;
 
 			cout << "a) Просмотр направлений и учебных заведений" << endl;
-			cout << "b) Выбор учебного заведения" << endl; //выбор учебного заведения
+			cout << "b) Выбор учебного заведения" << endl; 
 			cout << "c) Очистить выбор" << endl;
 			cout << "d) Просмотр условий" << endl;
 			cout << "e) Просмотр особенностей" << endl;
@@ -48,7 +48,7 @@ public:
 				_models->ClearResult();
 				break;
 			case 'd':
-				if (_models->GetResult())
+				if (_models->GetResult())//проверка выбрано ли учереждение
 				{
 					_models->PrintEntrance();
 				}
@@ -57,7 +57,7 @@ public:
 					cout << "Не выбранно учереждение" << endl;
 				}
 				cout << endl;
-				system("pause");
+				system("pause"); //ожидание нажатия клавиши для продолжения
 				break;
 			case 'e':
 				if (_models->GetResult())
@@ -72,17 +72,13 @@ public:
 				system("pause");
 				break;
 			case 'f':
-				_models->Result();
+				_models->Result();//вызов результата выбора
 				system("pause");
 				break;
 			default:
 				break;
 			}
 		} while (choice != 'q');
-	}
-	void ChoosingInstitution() //выбор учебного заведния
-	{
-		cout << setw(20) << "Title" << setw(30) << "type of study assignment" << endl;
 	}
 };
 

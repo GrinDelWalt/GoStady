@@ -23,19 +23,20 @@ protected:
 	int _idSpec{};
 	int _position;
 
-	static inline int _staticID;
+	static inline int _staticID; //статическая переменные для сквозной номерации экземпляров класов
 
 	string _training[3]{ "Контракт","Бюджет","Целевое обучеение" };
 	string _education[3]{ "Дневная","Вечернаяя","Заочная" };
-	int NextIdSpec()
+	int NextIdSpec()// методот уникальных ID для стециальностей
 	{
 		return _idSpec++;
 	}
-	static int NextID()
+	static int NextID() 
 	{
 		return _staticID++;
 	}
-	void CreateArayy(vector <string>& vectorForm, string arrayDate[])
+	//метод создания форм обучения и видов обучения, возможность обучения реализованно через рандомайзер
+	void CreateArayy(vector <string>& vectorForm, string arrayDate[]) 
 	{
 		srand(time(0));
 		string text;
@@ -51,6 +52,7 @@ protected:
 			}
 		}
 	}
+
 	void CreateModels(vector <string>& array, string arrayData[], int count)
 	{
 		srand(time(0));
@@ -69,10 +71,10 @@ protected:
 	}
 
 public:
-	EducationalInstitution() {}
+	EducationalInstitution() {} //конструктор по умолчанию
 
 
-	EducationalInstitution(string title, string category)
+	EducationalInstitution(string title, string category)//конструктор для создания экземпляра с данными
 	{
 		_title = title;
 		_category = category;
@@ -81,7 +83,7 @@ public:
 		CreateArayy(_formEducation, _education);
 		_position = -1;
 	}
-	bool SearchSpec(int id)
+	bool SearchSpec(int id)// проверка выбранной специальности по ID
 	{
 		for (Specialties spec : _specialties)
 		{
@@ -93,7 +95,7 @@ public:
 		}
 		return false;
 	}
-	int GetRandomInt(int min, int max)
+	int GetRandomInt(int min, int max)//генератор псевдослучайных чисел
 	{
 		static random_device rd;
 		static mt19937 generator(rd());
@@ -208,5 +210,4 @@ public:
 	{
 		return _formEducation;
 	}
-
 };
