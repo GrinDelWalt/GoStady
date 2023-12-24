@@ -56,6 +56,33 @@ public:
 		result = false;
 		TestModels();
 	}
+	void PrintEntrance()
+	{
+		if (_univers)
+		{
+			_university->PrintEntrance();
+		}
+		else
+		{
+			_college->PrintEntrance();
+		}
+	}
+	void PrintFeatures()
+	{
+		if (_univers)
+		{
+			_university->PrintFeatures();
+		}
+		else
+		{
+			_college->PrintFeatures();
+		}
+	}
+	bool GetResult()
+	{
+		return result;
+	}
+		
 	void PrintAll()
 	{
 		//cout << "ID" << setw(50) << "Название учебного заведения" << endl << endl;
@@ -76,11 +103,11 @@ public:
 		{
 			if (_univers)
 			{
-				_university->SetPosition(-1);
+				delete _university;
 			}
 			else
 			{
-				_college->SetPosition(-1);
+				delete _college;
 			}
 			result = false;
 			cout << "Данные очищенны" << endl;

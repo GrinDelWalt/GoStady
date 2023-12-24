@@ -25,9 +25,9 @@ public:
 
 			cout << "a) Просмотр направлений и учебных заведений" << endl;
 			cout << "b) Выбор учебного заведения" << endl; //выбор учебного заведения
-			cout << "d) Очистить выбор" << endl;
+			cout << "c) Очистить выбор" << endl;
 			cout << "d) Просмотр условий" << endl;
-			cout << "c) Просмотр особенностей" << endl;
+			cout << "e) Просмотр особенностей" << endl;
 			cout << "q) exet" << endl;
 
 			cout << "Write programm : ";
@@ -42,17 +42,35 @@ public:
 			case'b':
 				_models->PrintInstitution();
 				break;
-			case 'd':
+			case 'c':
 				_models->ClearResult();
+				break;
+			case 'd':
+				if (_models->GetResult())
+				{
+					_models->PrintEntrance();
+				}
+				else
+				{
+					cout << "Не выбранно учереждение" << endl;
+				}
+				system("pause");
+				break;
+			case 'e':
+				if (_models->GetResult())
+				{
+					_models->PrintFeatures();
+				}
+				else
+				{
+					cout << "Не выбранно учереждение" << endl;
+				}
+				system("pause");
 				break;
 			default:
 				break;
 			}
 		} while (choice != 'q');
-	}
-	void InstitutionMenu()
-	{
-
 	}
 	void ChoosingInstitution() //выбор учебного заведния
 	{

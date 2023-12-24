@@ -15,14 +15,17 @@ protected:
 	int _id; //ID
 	string _title; //название
 	string _category; //котегория учебного заведения
+	vector <Specialties> _specialties; //спецальность
 	vector <string> _formTraining; //вид обучения (платный бесплатный)
 	vector <string> _formEducation; //форма обучения
-	static inline int _staticID;
+	vector <string> _entrance;//требования
+	vector <string> _features;//особенности
 	int _idSpec{};
-	vector <Specialties> _specialties; //спецальность
 	int _position;
 
-	string _training[3]{ "Контракт","Бюджет","Целевое обучеенеи" };
+	static inline int _staticID;
+
+	string _training[3]{ "Контракт","Бюджет","Целевое обучеение" };
 	string _education[3]{ "Дневная","Вечернаяя","Заочная" };
 	int NextIdSpec()
 	{
@@ -48,12 +51,26 @@ protected:
 			}
 		}
 	}
+	void CreateModels(vector <string> &array, string arrayData[], int count)
+	{
+		srand(time(0));
+		string text;
+		for (int i = 0; i < count-1; i++)
+		{
+			if (i == 0)
+			{
+				array.push_back(arrayData[0]);
+			}
+			if (500 > GetRandomInt(0, 1000))
+			{
+				array.push_back(arrayData[i + 1]);
+			}
+		}
+	}
 
 public:
-	EducationalInstitution()
-	{
-
-	}
+	EducationalInstitution() {}
+	
 	
 	EducationalInstitution(string title, string category)
 	{
@@ -111,11 +128,19 @@ public:
 		for (int i = 0; i < _formTraining.size(); i++)
 		{
 			cout << " " << _formTraining[i];
+			if (i != _formTraining.size()-1)
+			{
+				cout << ",";
+			}
 		}
 		cout << "\nФорма обучения: ";
 		for (int i = 0; i < _formEducation.size(); i++)
 		{
 			cout << " " << _formEducation[i];
+			if (i != _formTraining.size() - 1)
+			{
+				cout << ",";
+			}
 		}
 		cout << "\nИнформация о направлениях" << endl;
 		PrintSpec();
@@ -136,5 +161,21 @@ public:
 	int GetID()
 	{
 		return _id;
+	}
+	void PrintEntrance() //печать требований для поступления
+	{
+		cout << "Требования для поступления" << endl << endl;
+		for (string text : _entrance)
+		{
+			cout << text << endl;
+		}
+	}
+	void PrintFeatures()
+	{
+		cout << "Особености обучения" << endl << endl;
+		for (string text : _features)
+		{
+			cout << text << endl;
+		}
 	}
 };

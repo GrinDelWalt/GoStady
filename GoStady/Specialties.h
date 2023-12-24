@@ -27,7 +27,6 @@ public:
 	{
 
 	}
-
 	void Print()
 	{
 		cout << _id <<setw(30) << _specialties << setw(20) << _formEducation << setw(30) << _direction << setw(10) << _salary << endl;
@@ -52,6 +51,5 @@ public:
 	{
 		return _formEducation;
 	}
-
 };
 
