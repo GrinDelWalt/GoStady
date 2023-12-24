@@ -35,9 +35,9 @@ protected:
 	{
 		return _staticID++;
 	}
-	void CreateArayy(vector <string> &vectorForm , string arrayDate[])
+	void CreateArayy(vector <string>& vectorForm, string arrayDate[])
 	{
-			srand(time(0));
+		srand(time(0));
 		string text;
 		for (int i = 0; i < 2; i++)
 		{
@@ -45,17 +45,17 @@ protected:
 			{
 				vectorForm.push_back(arrayDate[0]);
 			}
-			if (750 > GetRandomInt(0,1000))
+			if (750 > GetRandomInt(0, 1000))
 			{
 				vectorForm.push_back(arrayDate[i + 1]);
 			}
 		}
 	}
-	void CreateModels(vector <string> &array, string arrayData[], int count)
+	void CreateModels(vector <string>& array, string arrayData[], int count)
 	{
 		srand(time(0));
 		string text;
-		for (int i = 0; i < count-1; i++)
+		for (int i = 0; i < count - 1; i++)
 		{
 			if (i == 0)
 			{
@@ -70,8 +70,8 @@ protected:
 
 public:
 	EducationalInstitution() {}
-	
-	
+
+
 	EducationalInstitution(string title, string category)
 	{
 		_title = title;
@@ -121,6 +121,14 @@ public:
 	{
 		cout << _id << setw(50) << _title << endl;
 	}
+	Specialties GetSpecialties(int position)
+	{
+		return _specialties[position];
+	}
+	vector <Specialties> GetSpecialtiesVector()
+	{
+		return _specialties;
+	}
 	void PrintAll()
 	{
 		cout << "Название: " << _title << endl;
@@ -128,7 +136,7 @@ public:
 		for (int i = 0; i < _formTraining.size(); i++)
 		{
 			cout << " " << _formTraining[i];
-			if (i != _formTraining.size()-1)
+			if (i != _formTraining.size() - 1)
 			{
 				cout << ",";
 			}
@@ -158,6 +166,10 @@ public:
 	{
 		_position = id;
 	}
+	int GetPosition()
+	{
+		return _position;
+	}
 	int GetID()
 	{
 		return _id;
@@ -180,4 +192,21 @@ public:
 			cout << text << endl;
 		}
 	}
+	vector <string> GetFeatures()
+	{
+		return _features;
+	}
+	vector <string> GetEntrance()
+	{
+		return _entrance;
+	}
+	vector <string> GetFormTraining()
+	{
+		return _formTraining;
+	}
+	vector <string> GetFormEducation()
+	{
+		return _formEducation;
+	}
+
 };

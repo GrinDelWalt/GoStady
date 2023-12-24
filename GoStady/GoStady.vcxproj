@@ -134,6 +134,7 @@
     <ClCompile Include="Models.cpp" />
     <ClCompile Include="Specialties.cpp" />
     <ClCompile Include="University.cpp" />
+    <ClCompile Include="WritingFile.cpp" />
     <ClCompile Include="Сollege.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +143,7 @@
     <ClInclude Include="Models.h" />
     <ClInclude Include="Specialties.h" />
     <ClInclude Include="University.h" />
+    <ClInclude Include="WritingFile.h" />
     <ClInclude Include="Сollege.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

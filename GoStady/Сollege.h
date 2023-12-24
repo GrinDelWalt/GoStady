@@ -38,5 +38,9 @@ public:
 		PrintEntrance();
 		PrintFeatures();
 	}
+	string GetAverageScore()
+	{
+		return _averageScore;
+	}
 };
 

@@ -5,6 +5,8 @@
 #include <string>
 #include "Сollege.h"
 #include "University.h"
+#include "WritingFile.h"
+
 
 
 using namespace std;
@@ -43,18 +45,25 @@ private:
 			col.CreateSpecialties("Юриспруденция", education[col.GetRandomInt(0, 2)], "Право", col.GetRandomInt(30000, 200000));
 			col.CreateSpecialties("Информационное моделирование", education[col.GetRandomInt(0, 2)], "Вычислительная техника", col.GetRandomInt(30000, 200000));
 		}
+		_writeFile->WriteUniversity(_universitys);
+		_writeFile->WriteColleg(_colleges);
 	}
 	vector <University> _universitys;
 	vector <College> _colleges;
+
 	bool _univers;
 	bool result;
-public:
+	
 	College* _college;
 	University* _university;
+	WritingFile* _writeFile;
+
+public:
 	Models()
 	{
 		result = false;
 		TestModels();
+		_writeFile = new WritingFile();
 	}
 	void PrintEntrance()
 	{
@@ -255,6 +264,7 @@ public:
 			if (_univers)
 			{
 				_university->Print();
+				_writeFile->WriteResult(*_university);
 			}
 			else
 			{

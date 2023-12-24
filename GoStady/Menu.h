@@ -8,6 +8,7 @@
 using namespace std;
 class Menu
 {
+private:
 	Models* _models;
 public:
 	Menu()

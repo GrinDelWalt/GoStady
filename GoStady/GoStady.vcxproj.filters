@@ -42,6 +42,9 @@
     <ClCompile Include="Models.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="WritingFile.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EducationalInstitution.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="Models.h">
       <Filter>Файлы заголовков\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="WritingFile.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

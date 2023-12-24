@@ -36,6 +36,10 @@ public:
 		CreateModels(_entrance, arrayEntrance, sizeof(arrayEntrance) / sizeof(arrayEntrance[0]));
 		CreateModels(_features, arrayFeatures, sizeof(arrayFeatures) / sizeof(arrayFeatures[0]));
 	}
+	string GetAdmissionRequirement()
+	{
+		return _admissionRequirement;
+	}
 	void Print()
 	{
 		cout << "Название: " << _title << endl;
