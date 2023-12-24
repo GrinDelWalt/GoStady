@@ -36,5 +36,15 @@ public:
 		CreateModels(_entrance, arrayEntrance, sizeof(arrayEntrance) / sizeof(arrayEntrance[0]));
 		CreateModels(_features, arrayFeatures, sizeof(arrayFeatures) / sizeof(arrayFeatures[0]));
 	}
+	void Print()
+	{
+		cout << "Название: " << _title << endl;
+		cout << "Виды обучения: " << _specialties[_position].GetFormEducation() << endl;
+		cout << "Специальность: " << _specialties[_position].GetSpecialties() << endl;
+		cout << "Стоимость: " << _specialties[_position].GetSalary() << endl;
+		cout << "Мимимальный бал за ЕГЭ: " << _admissionRequirement << endl;
+		PrintEntrance();
+		PrintFeatures();
+	}
 };
 

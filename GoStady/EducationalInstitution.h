@@ -164,6 +164,7 @@ public:
 	}
 	void PrintEntrance() //печать требований для поступления
 	{
+		cout << endl;
 		cout << "Требования для поступления" << endl << endl;
 		for (string text : _entrance)
 		{
@@ -172,6 +173,7 @@ public:
 	}
 	void PrintFeatures()
 	{
+		cout << endl;
 		cout << "Особености обучения" << endl << endl;
 		for (string text : _features)
 		{

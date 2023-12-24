@@ -24,11 +24,11 @@ private:
 		CreateModelsUniversity("Полетехнический", "Институт", "270б");
 		CreateModelsUniversity("Аграрный", "Институт", "220б");
 
-		CreateModelCollege("Отраслевых технологий", "Коледж");
-		CreateModelCollege("Фармацевтический", "Коледж");
-		CreateModelCollege("Медицинский", "Коледж");
-		CreateModelCollege("Железнодорожного транспорта", "Коледж");
-		CreateModelCollege("Академия машиностроения", "Коледж");
+		CreateModelCollege("Отраслевых технологий", "Коледж", "4.8");
+		CreateModelCollege("Фармацевтический", "Коледж", "4.5");
+		CreateModelCollege("Медицинский", "Коледж", "4.2");
+		CreateModelCollege("Железнодорожного транспорта", "Коледж", "4.0");
+		CreateModelCollege("Академия машиностроения", "Коледж", "4.1");
 
 		for (University& univers : _universitys)
 		{
@@ -82,7 +82,7 @@ public:
 	{
 		return result;
 	}
-		
+
 	void PrintAll()
 	{
 		//cout << "ID" << setw(50) << "Название учебного заведения" << endl << endl;
@@ -116,16 +116,16 @@ public:
 		{
 			cout << "Буфер пуст!" << endl;
 		}
-			system("pause");
+		system("pause");
 
 	}
 	void CreateModelsUniversity(string title, string category, string admissionRequirement)
 	{
 		_universitys.push_back(*new University(title, category, admissionRequirement));
 	}
-	void CreateModelCollege(string title, string category)
+	void CreateModelCollege(string title, string category, string averageScore)
 	{
-		_colleges.push_back(*new College(title, category));
+		_colleges.push_back(*new College(title, category, averageScore));
 	}
 	void PrintInstitution()
 	{
@@ -249,9 +249,22 @@ public:
 	}
 	void Result()
 	{
+		if (result)
+		{
 
+			if (_univers)
+			{
+				_university->Print();
+			}
+			else
+			{
+				_college->Print();
+			}
+		}
+		else
+		{
+			cout << "Нечего не выбрано!" << endl;
+		}
 	}
-	//int ChoiceIdSpecialties()
-
 };
 

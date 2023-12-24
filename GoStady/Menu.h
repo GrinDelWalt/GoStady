@@ -71,7 +71,8 @@ public:
 				system("pause");
 				break;
 			case 'f':
-
+				_models->Result();
+				system("pause");
 				break;
 			default:
 				break;
